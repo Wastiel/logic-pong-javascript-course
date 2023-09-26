@@ -1,0 +1,162 @@
+Aula 01 - Introdução ao curso
+	Vamos fazer o jogo pong em scratch e java script
+
+Aula 02 e 03 - Discord e Forum
+
+Aula 04 - Iniciando no Scratch
+	Criar conta no https://scratch.mit.edu/
+	jogopongscratch
+	https://scratch.mit.edu/join
+
+Aula 05 - Primeiros Passos com Scratch
+	- criar projeto
+	- Criar bolinha
+	- tirar borda
+	- Criar raquete (retangulo)
+	- centralizar todos os atores. Impressindivel
+
+Aula 06 - Desenho dos atores
+	- Na criação dos atores, o que é impressindivel?
+		Os atores precisam estar centralizados, para que as coordenadas que iremos utilizar na programação representem-nos verdadeiramente.
+
+Aula 07 - Bolinha e minha raquete
+	- Cenário e atores no canto da tela do scratch definem estas variaveis
+	- Criamos alguns comandos de movimentação e lógica dentro do scratch.
+	- Pimeiro criamos os elementos da tela e um fundo preto apra ser o nosso cenario. 
+	- Começamos a trabalhar com o nosso cenario
+	- Adicionamos alguns comandos
+		Quando for clicado - serve para startar o projeto. Colocamos duas condições destas A e B
+	- A - Selecionamos vá para (x = 0, x = 0), para ser onde a bolinha vai começar
+	- A - Colocamos o comando aponte para a direção (45), para que inicalmente ela não vá reto
+	- B - Utilizamos o comando sempre, seria tipo um laço de repetição
+	- B - Coocamos o comando mova (12) passos
+	- B se tocar na borda, volte.
+	- Com isto temos uns comandos de intrução para começar o fluxo do jogo. 
+
+Aula 08 - Direçoa de movimento
+	-	Para realizar a movimentação da bolinha, utilizamos o bloco mova 10 passos.
+
+		Esse bloco cria a movimentação de acordo com a direção que o ator estiver apontando. Desse modo, se o ator estiver apontado para a direção de 90 graus, ele vai andar para a direita; se estiver apontado para a direção de 180 graus, o ator vai andar para baixo; se for 0 grau, o ator vai andar para cima; se apontar para -90 graus, o ator vai andar para a esquerda.
+
+		Se a direção da bolinha for de -180 graus, para qual direção ela irá se deslocar?
+
+		Para baixo. 
+
+Aula 09 -  Bolinha e minha raquete parte 2
+	- Melhoramos o fluxo do jogo, adicionamos movimento a raquete.
+		- Quando for clicado (inicial)
+		sempre
+		se tecla cima pressionada entao
+			adicione 10 a y
+		se tecla seta para baixo pressionada entao
+			adicione - 10 a y			
+	- Adicionamos movimento a bolinha em tres blocos diferente
+		- Quando for clicado (inicial)
+			va para x 0 e y 0
+			Aponte na direação 45
+		- Quando for clicado (inicial)
+			sempre
+			mova 05 passos
+			se tocar na borda, volte
+		QUando for clicado (iniciar)
+			sempre
+			se tocando em minha raquete (Objeto raquete) então
+			aponte para direção Direcao * - 1 (Vai mudar a bolinha para direção contraria)
+	- Com isto ja conseguimos mudar o fluxo da bolinha,
+
+Aula 10 -  Movimento da Raquete
+	- Foi questioando pq a raquete nao andava com o codigo abaixo:
+		Quando for clicado
+		semrpe
+		se tela seta para cima pressinada? entao
+		adicione 10 a x
+		se tecla para baixo pressionada?
+		adicione -10 a x
+
+	O problema ocorre, pq a movimentação tem que ser em y e não em x
+
+Aula 11 - Oponente e placar
+	- Colisao com a raquete ficou legal.
+	- 12 passos a bolinha.
+	- Raquete oopnente
+	- Observacao, semrpe posicionar o elemento no meio do eixo, para ele nao se perder no quadrado. 
+	- colnamos a nossa raquete, apra também ser a raquete do adversario
+	- as configurações serao a mesma, porém na posição x contraria, para ficar no outro lado do placar.
+		- adicionamos na raquete do oponente a seguinte interação:
+		quando for clicado iniciar
+		sempre
+		seslize 0 segs ate x 235 y posição da bolinha (Variavel que criamos no scartch)
+
+	- Configuramos a bolinha para pegar colisão tanto da raquete do oponente quanto da nossa.
+		Configuramos os seguintes blocos:
+			- Quando for clicado iniciar
+			sempre 
+			se tocando em "minha raquete" ou tocando em "raquete do oponente" enta
+			aponte para a direção * -1
+
+			- Quando for clicado iniciar
+			sempre mova 12 passos
+			mude posicao y da bolinha para posicao y
+			se tocar na borda volte
+
+Aula 12 - Variavéis
+	- Com a constante movimentação do ator “bolinha”, as coordenadas x e y também são alteradas. Para que possamos coletar as informações atualizadas da posição do ator “bolinha”, podemos criar uma variável a fim de armazenar os valores das coordenadas. Por meio dessa variável, o ator “raquete do oponente” poderá “ver” as coordenadas x e y do ator “bolinha”.
+
+	Para essa aplicação, dependendo da sua criação, qual é uma possível limitação da variável?
+
+	- A variavel deve ser vista para todos os atores.
+
+Aula 13 - Oponente e placar parte 2
+	- mudar posição do opnente, para ele poder errr.
+	- Criamos uma regra para que sempre que a bolinha batar na parede marcar um ponto
+	- Criamos duas variaveis
+	Criamos a seguinte regra para ambas as variaveis na bolinha
+		quando for clicado
+		sempre
+		espere ate posicao x < -229
+		adicione 1 ponto na variavel pontos do oponente
+		
+		quando for clicado	
+		sempre
+		espere ate posicao x > +229
+		adicione 1 ponto na variavel do meus pontos
+	- criamos as variaveis e configuramos as mesmas para ficarem em espaços menores
+	- Jogo ja esta bem evoluido. 
+
+Aula 14 - Pontuação
+	- Para desenvolver um algoritmo de pontuação do jogo Pong, é necessário avaliar se a bolinha realmente passa sem que seja rebatida pela raquete.
+
+	Para descrever essa situação em código, qual é o principal valor de referência que devemos avaliar para gerar essa pontuação?
+
+Aula 15 - Sons e compartilhando o jogo
+	- Vamos configurar Sons
+	- Sons servem para ambientar melhor a pessoa que está jogando. 
+	- Sons do próprio scartch
+	- Selecionamos o som na aba sons
+	- depois utilizamos o som com o evento
+		- toque o som (Nosso som salvo)
+	- algns exemplos em que o som pode ser executao. Quando o oponente ou eu fazemos ponto
+	- Quando a raquete toca na bola
+	- Vamos também publicar o jogo
+	- criamos a instrução em um loop sempre para uma musica tocar até o fim
+		- sempre
+			toque o som até o fim
+	Pagina do jogo https://scratch.mit.edu/projects/898585339
+
+Aula 16 - Recapitulação
+
+Aula 17 - Jogo mais difícil
+	- Como aumentar o valor da dificuldade do jogo
+		Mudando o parametro mude posicao y da bolinha para posicao y - 50 (mudar este valor).
+
+Aula 18 - O que aprendemos?
+	Nessa aula:
+		Desenvolvemos o jogo do Pong utilizando a linguagem de programação Scratch;
+
+		Implementamos a colisão da bolinha com as bordas, minha raquete e a raquete do oponente;
+
+		Movimentamos a raquete do oponente de forma individual, para acertar a bolinha na maioria das vezes;
+
+		Criamos o placar do jogo, indicando os meus pontos e do oponente;
+
+		Adicionamos sons e editamos a página do jogo no Scratch para que outras pessoas possam jogar.
