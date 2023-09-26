@@ -1,0 +1,113 @@
+Aula 01 - Criando minha raquete no jogo
+	- Falta um componente extremamente importante, a raquete.
+	- rect para criar um retangulo. Buscamos dentro da biblioteca.
+	- Criamos a raquete com os seguintes parametros:
+	- 	let xRaquete = 5;
+		let yRaquete = 150;
+		let raqueteComprimento = 10;
+		let raqueteAltura = 90;
+	- 
+	function mostraRaquete(){
+   	rect(xRaquete, yRaquete,     raqueteComprimento, raqueteAltura);
+	}
+
+Aula 02 - Criando uma raquete
+	- Meu objetivo agora é desenhar uma raquete na tela com as funções pré-existentes na biblioteca do p5.js. O que acontece se eu apenas chamar uma função raquete() no código?
+
+	Alternativa correta
+	A função será automatica
+
+	- Uma mensagem de erro aparecerá, avisando que o nome não está definido.
+
+Aula 03 - Movimento minha raquete
+	- vamos movimentar a raquete
+	- Criamos a movimentação com a seguinte função
+
+			function movimentaMinhaRaquete(){
+		  if(keyIsDown(UP_ARROW)) {
+		    yRaquete -= 10;
+		  }
+
+		  if(keyIsDown(DOWN_ARROW)) {
+		    yRaquete += 10;
+		  }
+		    
+		}
+
+Aula 04 - Colisão com a raquete
+	- Criamos a regra de colisão com a raquete
+		function verificaColisaoRaquete(){  
+		 if (xBolinha - raio < xRaquete + raqueteComprimento
+		        && yBolinha - raio < yRaquete + raqueteAltura
+		        && yBolinha + raio > yRaquete) {
+		        velocidadeXBolinha *= -1;
+		 }
+
+Aula 05 - Explicando a colisão da bolinha com a raquete.
+	- São comparadas as extremidades de ambos, gerando as validações.
+
+Aula 06 - Verifica colisão da raquete
+	-	Na função para verificar a colisão com a raquete, criamos o seguinte condicional:
+
+		function verificaColisaoRaquete(){
+		  if (xBolinha - raio < xRaquete + raqueteComprimento 
+		  && yBolinha - raio < yRaquete + raqueteAltura 
+		  && yBolinha + raio > yRaquete){
+		    velocidadeXBolinha *= -1;
+		  }
+		}
+		COPIAR CÓDIGO
+		Ao utilizarmos a sintaxe &&, estamos nos referindo a qual operador lógico em JavaScript?
+
+Aula 07 - Importando outra biblioteca
+	- Pessoas compartilhando solução de problemas
+	- help e references - Bibliotecas, feita por outras pessoas(aqui procuramos as bibliotecas que queremos utilizar)
+		p5 colide 2D
+	- GitHUB Plataforma para hospedar codigos profissionais
+	- Biblioteca que importamos para o nosso projeto.
+	https://github.com/bmoren/p5.collide2D#colliderectcircle
+	Utilizamos somente o arquivo p5.collide2d.js.
+	Realizamos a seguinte importação 
+	<script src="p5.collide2d.js"></script>
+	Posterior utilizamos a função solicitada.
+	- colisaoMinhaRaqueteBiblioteca();
+	- function colisaoMinhaRaqueteBiblioteca(){
+	  colidiu = collideRectCircle(xRaquete,yRaquete,raqueteComprimento,raqueteAltura, xBolinha, yBolinha, raio);
+	  if(colidiu){
+	     velocidadeXBolinha *= -1;
+	  }
+ 
+Aula 08 - Outras bibliotecas no GitHub
+	- Criamos o código que verifica a colisão da bolinha com a nossa raquete verificando a posição x e y de cada um deles. Porém, acessando a documentação do P5 Js, vimos que existe uma solução disponível no GitHub, para reconhecer a colisão entre objetos 2D.
+
+	Sabendo disso, analise as afirmações abaixo e marque as verdadeiras.
+
+	Respostas:
+
+		É possível compartilhar um código com a solução desenvolvida por nós para que outras pessoas possam usar.
+
+
+		Certo! Podemos hospedar nosso código no GitHub, compartilhando uma solução, ajudando assim outras pessoas da comunidade.
+
+		Alternativa correta
+		O GitHub permite a socialização com pessoas que possuem os mesmos interesses que você.
+
+
+		Certo! O GitHub funciona também como um rede social entre pessoas programadores.	
+
+Aula 09 - Revisão. 
+
+Aula 10 - O que aprendemos?
+		- Nessa aula:
+		Criamos uma função para desenhar a raquete
+
+		function mostraRaquete(){
+		rect(xRaquete, yRaquete, raqueteComprimento, 
+		    raqueteAltura);
+		}COPIAR CÓDIGO
+		Movimentamos a raquete através das setas para cima e para baixo do teclado, através dos códigos keyIsDown(UP_ARROW) e keyIsDown(DOWN_ARROW) respectivamente
+
+		Implementamos a colisão da bolinha com a minha raquete, verificando a posição x e y de cada um deles
+
+		Importamos uma biblioteca do Github que verifica a colisão
+
