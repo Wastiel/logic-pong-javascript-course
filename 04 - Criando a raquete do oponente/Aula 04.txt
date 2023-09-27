@@ -1,0 +1,4 @@
+Aula 01 - Criando a raquete do oponente
+	- Criar a raquete do oponente.
+	- Chamara as funções com parametros diferentes
+	
