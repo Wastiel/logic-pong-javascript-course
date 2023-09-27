@@ -1,4 +1,85 @@
 Aula 01 - Criando a raquete do oponente
 	- Criar a raquete do oponente.
 	- Chamara as funções com parametros diferentes
-	
+	- Criamos a raquete do oponente, parecida com a nossa, porém com parametros em lados opostos
+
+
+Aula 02 - Lógica por tras da velocidade da raquete
+	- Entendendo a lógica por trás da velocidade da raquete do oponente
+A função movimentaRaqueteOponente() é responsável pela atualização da posição vertical da raquete do oponente levando em consideração a posição da bola. A função completa pode ser vista a seguir:
+
+function movimentaRaqueteOponente() {
+velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30;
+yRaqueteOponente += velocidadeYOponente;
+}
+COPIAR CÓDIGO
+Nela temos a equação velocidadeYOponente = yBolinha - yRaqueteOponente - raqueteComprimento / 2 - 30, que calcula a velocidade da raquete do oponente no eixo Y. Vamos entender os detalhes dessa equação:
+
+A subtração (yBolinha - yRaqueteOponente) da posição vertical da bola (yBolinha) pela posição atual da raquete do oponente (yRaqueteOponente) serve para determinar o deslocamento necessário para posicionar no local correto a raquete do oponente levando em consideração a posição da bola. Em outras palavras, isso serve para a raquete do oponente seguir a posição da bolinha pelo eixo y (eixo vertical).
+
+Já a divisão raqueteComprimento / 2 encontra o valor da metade do comprimento da raquete. Depois é subtraído esse valor encontrado (- raqueteComprimento / 2) para certificar que a raquete do oponente esteja sempre posicionada corretamente em relação ao centro da bolinha.
+
+E por fim, é subtraído o valor constante 30 para ajustar a posição vertical da raquete através de um deslocamento adicional. Isso torna a movimentação da raquete do oponente mais fluída e natural. Esse valor pode ser ajustado levando em consideração as dimensões do jogo.
+
+Depois de encontrar a velocidade da raquete, o trecho de código yRaqueteOponente += velocidadeYOponente; adiciona essa velocidade a posição vertical da raquete, para que ela de fato se mova verticalmente em direção a bolinha, acompanhando-a conforme ela se movimenta na tela.
+
+Aula 03 - Criando a raquete do oponente
+	- Durante a construção da raquete do oponente, percebemos que não precisaríamos criar a função mostraRaqueteOponente(), pois a função mostraRaquete() já continha os parâmetros necessários. Selecione a alternativa que explica por que decidimos usar a função existente em nosso código em vez de criar uma nova.
+
+	Alternativa correta
+	Pois assim usamos menos linhas de código, já que nossos parâmetros são muito semelhantes.
+
+Aula 04 - Criando a raquete do oponente
+	- mudamos a biblioteca importada, para pegar a colisão da raquete do oponente e da minha raquete na mesma função
+	- verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
+	function verificaColisaoRaquete(x, y){
+		  colidiu = collideRectCircle(x,y,raqueteComprimento,raqueteAltura, xBolinha, yBolinha, raio);
+		  if(colidiu){
+		     velocidadeXBolinha *= -1;
+		  }
+		  
+		}
+
+Aula 05 - Colisão do oponente
+	- Qual a funçao mostra colisão da raquete do oponente
+
+	- verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente)
+
+Aula 06 - Comentários no código
+	- // Gera comentários no código
+
+Aula 07 - Para saber mais: Raquete passando da tela
+	- Utilizamos o parametro  yRaqueteOponente = constrain(yRaqueteOponente, 10, 310); e  yRaquete = constrain(yRaquete, 10, 310); para impedir que a raquete saia da tela. 
+
+Aula 08 - Criando Placar
+	- Armazenar no jogo o placar do jogo.
+	- Sempre pensar o que podemos fazer para melhorar o nosso código. 
+
+
+Aula 09 - Marcando Pontos
+	-	Durante o curso, após movimentar a raquete do oponente de forma automática, suponhamos que um aluno ou uma aluna resolveu criar um placar do jogo, mostrando os pontos ganhos por cada raquete. Para isso, desenvolveu a seguinte função:
+
+		function marcaPonto(){
+		  if (xBolinha > 590){
+		    pontosDoOponente += 1;
+		  }
+		  if (xBolinha < 10){
+		    meusPontos += 1;
+		  }
+		}
+		COPIAR CÓDIGO
+		Porém, ao executar o programa, percebeu que algo não funcionou como esperado.
+
+		Com base no código, podemos afirmar que:
+	- Pontos intertidos
+
+Aula 10 - Eu mesmo fazer
+
+
+Aula 11 - Recapituloando.
+	-Nessa aula:
+	Reutilizamos a função mostraRaquete() para criar a minha raquete e a raquete do oponente
+
+	Reaproveitamos também a função verificaColisaoRaquete() para reconhecer a colisão da bolinha tanto com minha raquete quanto com a raquete do oponente
+
+	Criamos o placar do jogo, marcando os meus pontos e os pontos do oponente
